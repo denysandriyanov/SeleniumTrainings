@@ -24,6 +24,14 @@ dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:28.2-jre'
 
-    // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
+	//Junit
+	testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.7.1")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.1")
+	testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.7.1")
+    
+    //DriverManager
+     testImplementation 'io.github.bonigarcia:webdrivermanager:4.3.1'
+    
+    // Celenium
+    testImplementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
 }
