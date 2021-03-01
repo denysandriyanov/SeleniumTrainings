@@ -34,8 +34,6 @@ public class SimpleTest {
     public void CheckSeleniumStringPresent() 
     {        
         driver.get(" http://158.101.173.161/");
-        "li.manufacturers > a:nth-child(1)"
-
         driver.findElement(By.name("q")).sendKeys("Selenium" + Keys.ENTER);
         Assertions.assertTrue(driver.findElement(By.cssSelector("h3")).getText().toLowerCase().contains("selenium"), "not found");
     }
