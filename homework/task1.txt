@@ -1,0 +1,23 @@
+$$("li.manufacturers.dropdown a.dropdown-toggle")
+$x("//li[contains(@class,'manufacturers')]/a[contains(@class,'dropdown-toggle')]")
+
+$$("ul.nav.navbar-nav.navbar-right a.dropdown-toggle")
+$x("//li[contains(@class,'account')]/a[@class='dropdown-toggle']")
+
+$$("input.form-control[type=email]")
+$x("//input[@type='email']")
+
+$$("input.form-control[type=password]")
+$x("//input[@type='password']")
+
+CSS - $$("li.account.dropdown [href$=create_account]")
+$x("//li[contains(@class,'account')]//a[contains(@href,'create_account')]")
+
+$$("#box-recently-viewed-products [src]")
+$x("//section[@id='box-recently-viewed-products']//img")
+
+$$("#box-popular-products div.listing.products article:nth-child(2) img")
+$x("//section[@id='box-popular-products']//article[2]//img")
+
+$$("#box-latest-products div.listing.products article:nth-child(3)")
+$x("//section[@id='box-latest-products']//article[3]")
