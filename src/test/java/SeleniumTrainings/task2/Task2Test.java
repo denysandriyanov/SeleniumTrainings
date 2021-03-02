@@ -115,7 +115,7 @@ public class Task2Test {
 
 
     /**
-     * Checks for presence of element for given menu item and asserts in case not found
+     * Checks for presence of "div.panel-heading" element for given menu item and asserts in case not found
      * 
      * @param driver the Webdriver to use
      * @param menuItem menuItem that is opened
