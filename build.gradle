@@ -34,4 +34,6 @@ dependencies {
     
     // Celenium
     testImplementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
+    
+    compile "org.slf4j:slf4j-simple:1.6.1"
 }

@@ -1,14 +1,9 @@
 package SeleniumTrainings.task2;
 
-import static org.junit.Assert.assertNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,6 +13,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+/**
+ * Task 2
+ */
 public class Task2Test {
 
     static WebDriver driver;
@@ -55,7 +53,7 @@ public class Task2Test {
         userPass.sendKeys("R8MRDAYT_test");
 
         driver.findElement(By.cssSelector("button.btn[type='submit']")).click();
-        new WebDriverWait(driver,30).until(ExpectedConditions.titleContains("Dashboard"));
+        new WebDriverWait(driver,30).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id("logotype")));
 
         // wait will already have failed, but the condition we are testing for is the page title here
         Assertions.assertEquals("Dashboard | Selenium Test Store", driver.getTitle(), "Title does not match");
