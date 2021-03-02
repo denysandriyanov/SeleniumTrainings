@@ -57,8 +57,7 @@ public class Task2Test {
         driver.findElement(By.cssSelector("button.btn[type='submit']")).click();
         new WebDriverWait(driver,30).until(ExpectedConditions.titleContains("Dashboard"));
 
-        // wait will already have failed, but the condition
-        // we are testing for is the page title here
+        // wait will already have failed, but the condition we are testing for is the page title here
         Assertions.assertEquals("Dashboard | Selenium Test Store", driver.getTitle(), "Title does not match");
     }
 
