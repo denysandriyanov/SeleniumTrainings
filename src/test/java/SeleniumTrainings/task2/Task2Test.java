@@ -106,10 +106,7 @@ public class Task2Test {
                 //check that header object is present after main menu is opened
                 this.checkHeaderForMenuItemAndAssert(driver, subMenuItemName);              
             }
-
         }
-
-
     }
 
 
