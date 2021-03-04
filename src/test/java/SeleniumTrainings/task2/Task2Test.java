@@ -1,6 +1,5 @@
 package SeleniumTrainings.task2;
 
-import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -25,7 +24,6 @@ public class Task2Test {
     { 
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
     @AfterAll
@@ -123,6 +121,6 @@ public class Task2Test {
     public void checkHeaderForMenuItemAndAssert(WebDriver driver, String menuItem, boolean itemIsSubMenu)
     {
         System.out.println((itemIsSubMenu ? "\t" :"Checking menu: ") + menuItem);
-        Assertions.assertFalse(driver.findElements(By.cssSelector("div.panel-heading")).size() < 0, "Header object was not found for '" + menuItem + "' menu");
+        Assertions.assertEquals(1, driver.findElements(By.cssSelector("div.panel-heading")).size(), "Header object was not found for '" + menuItem + "' menu");
     }
 }
