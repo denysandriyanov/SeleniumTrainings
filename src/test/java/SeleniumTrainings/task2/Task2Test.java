@@ -86,7 +86,7 @@ public class Task2Test {
             //check that header object is present after main menu is opened
             this.checkHeaderForMenuItemAndAssert(driver, menuItemName);
          
-            //in case DOM was changed after click, or index of item was changed we may end up having wrong id's, so let's make sure this will not happen 
+            //in case DOM was changed after click, or index of item was changed we may end up having wrong object id's, so let's make sure this will not happen 
             //get object id again, this time by it's data-code value 
             menu = driver.findElement(By.cssSelector("#box-apps-menu li.app[data-code='" + menuItemName + "']"));
         
