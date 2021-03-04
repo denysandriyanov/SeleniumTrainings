@@ -56,6 +56,7 @@ public class Task2Test {
         driver.findElement(By.cssSelector("button.btn[type='submit']")).click();
         new WebDriverWait(driver,30).until(ExpectedConditions.elementToBeClickable(By.id("widget-discussions")));
         
+        //need to have this dumb sleep in order to be sure page is completely rendered and displayed
         Thread.sleep(1000);
 
         // let's check page title 
