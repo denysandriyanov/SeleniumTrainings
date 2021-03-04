@@ -84,7 +84,7 @@ public class Task2Test {
             menu.click();
             
             //check that header object is present after main menu is opened
-            this.checkHeaderForMenuItemAndAssert(driver, menuItemName);
+            this.checkHeaderForMenuItemAndAssert(driver, menuItemName, false);
          
             //in case DOM was changed after click, or index of item was changed we may end up having wrong object id's, so let's make sure this will not happen 
             //get object id again, this time by it's data-code value 
@@ -106,7 +106,7 @@ public class Task2Test {
                 subMenu.click();
                 
                 //check that header object is present after main menu is opened
-                this.checkHeaderForMenuItemAndAssert(driver, subMenuItemName);              
+                this.checkHeaderForMenuItemAndAssert(driver, subMenuItemName, true);              
             }
         }
     }
@@ -117,10 +117,11 @@ public class Task2Test {
      * 
      * @param driver the Webdriver to use
      * @param menuItem menuItem that is opened
+     * @param itemIsSubMenu true if item is sub menu
      */
-    public void checkHeaderForMenuItemAndAssert(WebDriver driver, String menuItem)
+    public void checkHeaderForMenuItemAndAssert(WebDriver driver, String menuItem, boolean itemIsSubMenu)
     {
-        System.out.println("Checking " + menuItem);
+        System.out.println((itemIsSubMenu ? "\t" :"Checking menu: ") + menuItem);
         Assertions.assertFalse(driver.findElements(By.cssSelector("div.panel-heading")).size() < 0, "Header object was not found for '" + menuItem + "' menu");
     }
 }
