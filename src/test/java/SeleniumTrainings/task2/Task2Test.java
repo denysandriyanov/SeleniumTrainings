@@ -37,9 +37,10 @@ public class Task2Test {
     /**
      * Opens page, enters user name and password, tries to log in
      * Verifies log in is successful after 30 sec timeout
+     * @throws InterruptedException 
      */
     @Test 
-    void LogInToAdminPannelAndCheckTitle() 
+    void LogInToAdminPannelAndCheckTitle() throws InterruptedException 
     {        
         driver.get("http://158.101.173.161/admin/");
         WebElement logInForm = driver.findElement(By.id("box-login"));
@@ -53,9 +54,11 @@ public class Task2Test {
         userPass.sendKeys("R8MRDAYT_test");
 
         driver.findElement(By.cssSelector("button.btn[type='submit']")).click();
-        new WebDriverWait(driver,30).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id("logotype")));
+        new WebDriverWait(driver,30).until(ExpectedConditions.elementToBeClickable(By.id("widget-discussions")));
+        
+        Thread.sleep(1000);
 
-        // wait will already have failed, but the condition we are testing for is the page title here
+        // let's check page title 
         Assertions.assertEquals("Dashboard | Selenium Test Store", driver.getTitle(), "Title does not match");
     }
 
@@ -76,14 +79,15 @@ public class Task2Test {
 
             //store menu name
             String menuItemName = menu.getAttribute("data-code"); 
-
+            
             //open menu
             menu.click();
             
             //check that header object is present after main menu is opened
             this.checkHeaderForMenuItemAndAssert(driver, menuItemName);
          
-            //get menu id again, this time by it's data-code value
+            //in case DOM was changed after click, or index of item was changed we may end up having wrong id's, so let's make sure this will not happen 
+            //get object id again, this time by it's data-code value 
             menu = driver.findElement(By.cssSelector("#box-apps-menu li.app[data-code='" + menuItemName + "']"));
         
             //get sub menu count for current main menu
@@ -116,6 +120,7 @@ public class Task2Test {
      */
     public void checkHeaderForMenuItemAndAssert(WebDriver driver, String menuItem)
     {
+        System.out.println("Checking " + menuItem);
         Assertions.assertFalse(driver.findElements(By.cssSelector("div.panel-heading")).size() < 0, "Header object was not found for '" + menuItem + "' menu");
     }
 }
