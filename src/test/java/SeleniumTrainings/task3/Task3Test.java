@@ -65,6 +65,7 @@ public class Task3Test {
             wait.until(ExpectedConditions.textToBe(By.cssSelector("div.badge.quantity"), String.valueOf(productCout)));
             driver.navigate().back();  
         }
+        
         driver.findElement(By.cssSelector("div.badge.quantity")).click();
     }
 
