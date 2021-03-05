@@ -49,7 +49,7 @@ public class Task3Test {
         this.addItemsToCartAndCheckOut();
         this.removeAllItemsFromCart();
             
-        Assertions.assertEquals("", wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.badge.quantity"))).getText(), "There should be no items in cart after removal");
+        Assertions.assertTrue(wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.badge.quantity"))).getText().isBlank(), "There should be no items in cart after removal");
     }
 
 
