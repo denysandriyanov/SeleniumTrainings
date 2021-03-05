@@ -58,14 +58,11 @@ public class Task3Test {
      */
     private void addItemsToCartAndCheckOut()
     {       
-        String itemsInCart = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.badge.quantity"))).getText();
-        int initalQuantityOfItemsInCart = itemsInCart.isBlank() ? 0 : Integer.valueOf(itemsInCart);
-
         for (int productCout = 1; productCout <= ITEMS_TO_ADD; productCout++)
         {
             driver.findElements(By.cssSelector("#box-popular-products .product-column")).get(productCout).click();
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@name='add_cart_product']"))).click();
-            wait.until(ExpectedConditions.textToBe(By.cssSelector("div.badge.quantity"), String.valueOf(initalQuantityOfItemsInCart + productCout)));
+            wait.until(ExpectedConditions.textToBe(By.cssSelector("div.badge.quantity"), String.valueOf(productCout)));
             driver.navigate().back();  
         }
         driver.findElement(By.cssSelector("div.badge.quantity")).click();
