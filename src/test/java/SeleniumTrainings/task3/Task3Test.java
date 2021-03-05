@@ -47,7 +47,7 @@ public class Task3Test {
         driver.get("http://158.101.173.161/");
         
         this.addItemsToCartAndCheckOut();
-        this.removeAllItems();
+        this.removeAllItemsFromCart();
             
         Assertions.assertEquals("", wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.badge.quantity"))).getText(), "There should be no items in cart after removal");
     }
@@ -74,7 +74,7 @@ public class Task3Test {
     /**
      * Removes all items from cart
      */
-    private void removeAllItems()
+    private void removeAllItemsFromCart()
     {
         while (driver.findElements(By.cssSelector("a.btn-default")).size() == 0)
         {
