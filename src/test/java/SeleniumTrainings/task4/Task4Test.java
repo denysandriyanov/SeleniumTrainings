@@ -37,8 +37,7 @@ public class Task4Test {
         capabilities.setCapability("browserName", "chrome");
         capabilities.setCapability("browserVersion", "89.0");
         capabilities.setCapability("selenoid:options", Map.<String, Object>of("enableVNC", true,"enableVideo", true));
-        RemoteWebDriver remoteDriver = new RemoteWebDriver(URI.create("http://172.22.207.181:4444/wd/hub").toURL(), capabilities);
-        
+        RemoteWebDriver remoteDriver = new RemoteWebDriver(URI.create("http://172.22.207.181:4444/wd/hub").toURL(), capabilities);       
         driver = new EventFiringWebDriver(remoteDriver);
         wait = new WebDriverWait(driver,10);
         driver.register(new Listener());
