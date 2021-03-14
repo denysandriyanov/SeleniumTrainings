@@ -1,5 +1,9 @@
 package SeleniumTrainings.task4;
 
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
+import java.util.Map;
 import java.util.Set;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
@@ -8,6 +12,9 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -24,10 +31,15 @@ public class Task4Test {
     static WebDriverWait wait;
 
     @BeforeAll
-    static void setUp()
-    { 
-        WebDriverManager.chromedriver().setup();
-        driver = new EventFiringWebDriver(new ChromeDriver());
+    static void setUp() throws MalformedURLException
+    {        
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("browserName", "chrome");
+        capabilities.setCapability("browserVersion", "89.0");
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of("enableVNC", true,"enableVideo", true));
+        RemoteWebDriver remoteDriver = new RemoteWebDriver(URI.create("http://172.22.207.181:4444/wd/hub").toURL(), capabilities);
+        
+        driver = new EventFiringWebDriver(remoteDriver);
         wait = new WebDriverWait(driver,10);
         driver.register(new Listener());
     }
