@@ -1,4 +1,4 @@
-package SeleniumTrainings.task4;
+package seleniumLessons.task4;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -19,8 +19,8 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import SeleniumTrainings.task4.listeners.Listener;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import seleniumLessons.task4.listeners.Listener;
 
 /**
  * Task 2
@@ -50,7 +50,7 @@ public class Task4Test {
     }
 
     /**
-     * Adds Items to cart
+     * Adds Cart to cart
      * Removes all items from 
      * Verifies no items in cart left after operation
      * @throws InterruptedException 
